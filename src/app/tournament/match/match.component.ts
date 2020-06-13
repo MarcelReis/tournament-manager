@@ -1,3 +1,4 @@
+import { OpponentType } from './../../models/match'
 import { Match } from 'src/app/models/match'
 import { Component, Input, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs'
@@ -15,19 +16,29 @@ export class MatchComponent implements OnInit {
   @Input() match: Match
   @Input() addScore: (teamID: number) => void
 
+  opponents: Team[] & OpponentType[]
   subscription: Subscription
   teams: Team[]
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>) {
+    this.opponents = []
+  }
 
   ngOnInit(): void {
     this.subscription = this.store
       .select('register')
       .pipe(map((state) => state.teams))
       .subscribe((teams: Team[]) => {
-        this.teams = teams.filter((team) =>
-          this.match.teams.find((opponent) => opponent?.id === team.id)
-        )
+        this.opponents = this.match.teams.map((team) => {
+          if (!team || !team.id) {
+            return { id: -1, score: 0, name: '' }
+          }
+          return {
+            ...teams.find((_team) => team.id === _team.id),
+            id: team.id,
+            score: team.score,
+          }
+        })
       })
   }
 }

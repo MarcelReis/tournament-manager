@@ -2,7 +2,7 @@
   <div>
     <app-opponent
       *ngFor="let opponent of match.teams; index as i"
-      [team]="opponent"
+      [opponent]="opponents[i]"
       (click)="addScore(match.teams[i].id)"
     ></app-opponent>
   </div>
