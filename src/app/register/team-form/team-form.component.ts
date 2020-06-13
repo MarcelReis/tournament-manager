@@ -16,6 +16,7 @@ import { company } from 'faker'
 export class TeamFormComponent implements OnInit {
   @Input() private addTeam: (team: string) => void
   @Input() disabled: boolean
+  @Input() fillTeams: () => void
 
   teamName: string
 

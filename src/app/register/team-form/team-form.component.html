@@ -27,6 +27,7 @@
       aria-label="Random names"
       color="primary"
       [disabled]="nameFormControl.hasError('required') || disabled"
+      (click)="fillTeams()"
     >
       <mat-icon>casino</mat-icon>
       <span class="button-text">Random</span>

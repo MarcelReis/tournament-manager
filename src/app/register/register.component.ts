@@ -38,6 +38,12 @@ export class RegisterComponent implements OnInit {
     this.store.dispatch(removeTeam({ id }))
   }
 
+  addRandomTeams = () => {
+    for (let i = this.teams.length; i < 8; i++) {
+      this.store.dispatch(addTeam({ name: company.companyName() }))
+    }
+  }
+
   startGame() {
     this.store.dispatch(gameStared({ ids: this.teams.map((team) => team.id) }))
     this.router.navigate(['/tournament'])
