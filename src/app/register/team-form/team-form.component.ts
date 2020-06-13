@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ChangeDetectionStrategy,
-  Input,
-} from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
 import { company } from 'faker'
 
@@ -11,7 +6,6 @@ import { company } from 'faker'
   selector: 'app-opponent-form',
   templateUrl: './team-form.component.html',
   styleUrls: ['./team-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TeamFormComponent implements OnInit {
   @Input() private addTeam: (team: string) => void
