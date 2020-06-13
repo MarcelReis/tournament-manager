@@ -1,0 +1,16 @@
+<app-team-form
+  [addTeam]="addTeam"
+  [disabled]="!(teams.length < 8)"
+></app-team-form>
+
+<app-team-list [teams]="teams" [removeTeam]="removeTeam"></app-team-list>
+
+<button
+  [disabled]="teams.length < 8"
+  mat-raised-button
+  color="accent"
+  (click)="startGame()"
+  style="width: 100%;"
+>
+  Create
+</button>

@@ -1,0 +1,23 @@
+<form class="team-form">
+  <h2>Create a Team</h2>
+  <mat-form-field class="text-input">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      [formControl]="nameFormControl"
+      placeholder="ex.: Natus Vincere"
+      [(ngModel)]="teamName"
+    />
+    <mat-error *ngIf="nameFormControl.hasError('required')">
+      Team name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <button
+    [disabled]="nameFormControl.hasError('required') || disabled"
+    mat-raised-button
+    color="accent"
+    (click)="submit()"
+  >
+    Create
+  </button>
+</form>

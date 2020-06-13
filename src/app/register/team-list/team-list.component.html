@@ -1,0 +1,18 @@
+<h2>Teams</h2>
+<mat-list class="teamsList" role="list">
+  <mat-list-item class="teamsList-item" *ngFor="let team of teams">
+    <span class="team-name">
+      {{ team.name }}
+    </span>
+    <button
+      mat-icon-button
+      aria-label="Delete team"
+      (click)="deleteTeam(team.id)"
+    >
+      <mat-icon>
+        delete
+      </mat-icon>
+    </button>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

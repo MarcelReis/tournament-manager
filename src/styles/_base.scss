@@ -1,0 +1,17 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  background: #171717;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
