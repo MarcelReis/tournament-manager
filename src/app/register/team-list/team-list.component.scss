@@ -1,7 +1,12 @@
+.container {
+  padding: 16px;
+}
+
 .teamsList {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin: 0 -16px;
 }
 
 .teamsList-item {

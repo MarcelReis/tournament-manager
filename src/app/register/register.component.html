@@ -8,9 +8,13 @@
 <button
   [disabled]="teams.length < 8"
   mat-raised-button
-  color="accent"
   (click)="startGame()"
-  style="width: 100%;"
+  color="accent"
+  class="button"
+  type="submit"
 >
-  Create
+  <span class="button-content">
+    <mat-icon>emoji_events</mat-icon>
+    <span>Create Tournament</span>
+  </span>
 </button>

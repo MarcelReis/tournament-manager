@@ -6,3 +6,15 @@
 .text-input {
   width: 100%;
 }
+
+.button {
+  margin: 16px;
+  width: calc(100% - 32px);
+}
+.button-content {
+  display: grid;
+  margin: 4px 0;
+  grid-template-columns: 48px 1fr;
+  justify-content: center;
+  align-items: center;
+}

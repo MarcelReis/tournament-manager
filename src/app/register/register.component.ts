@@ -1,3 +1,4 @@
+import { Router } from '@angular/router'
 import { gameStared } from '../tournament/store/tournament.action'
 import { Component, OnInit } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
   teams: Team[]
   subscription: Subscription
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private router: Router) {}
 
   nameFormControl = new FormControl('', [
     Validators.required,
@@ -39,6 +40,7 @@ export class RegisterComponent implements OnInit {
 
   startGame() {
     this.store.dispatch(gameStared({ ids: this.teams.map((team) => team.id) }))
+    this.router.navigate(['/tournament'])
   }
 
   ngOnInit(): void {
