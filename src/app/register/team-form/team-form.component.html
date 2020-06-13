@@ -12,12 +12,24 @@
       Team name is <strong>required</strong>
     </mat-error>
   </mat-form-field>
-  <button
-    [disabled]="nameFormControl.hasError('required') || disabled"
-    mat-raised-button
-    color="accent"
-    (click)="submit()"
-  >
-    Create
-  </button>
+
+  <div class="buttons-container">
+    <button
+      [disabled]="nameFormControl.hasError('required') || disabled"
+      mat-raised-button
+      color="accent"
+      (click)="submit()"
+    >
+      Create
+    </button>
+    <button
+      mat-raised-button
+      aria-label="Random names"
+      color="primary"
+      [disabled]="nameFormControl.hasError('required') || disabled"
+    >
+      <mat-icon>casino</mat-icon>
+      <span class="button-text">Random</span>
+    </button>
+  </div>
 </form>

@@ -6,3 +6,15 @@
 .text-input {
   width: 100%;
 }
+
+.buttons-container {
+  display: flex;
+  button:first-of-type {
+    flex-grow: 1;
+    margin-right: 16px;
+  }
+}
+
+.button-text {
+  margin-left: 15px;
+}

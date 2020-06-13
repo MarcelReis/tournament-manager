@@ -3,7 +3,24 @@
     <span>Summoners Rift</span>
   </mat-toolbar-row>
 </mat-toolbar>
-<a routerLink="/tournament">Tournament</a>
-<a routerLink="/register">Register</a>
+
+<nav mat-tab-nav-bar mat-align-tabs="start" class="nav-tab">
+  <a
+    mat-tab-link
+    routerLink="/register"
+    routerLinkActive
+    #rla1="routerLinkActive"
+    [active]="rla1.isActive"
+    >Set Up</a
+  >
+  <a
+    mat-tab-link
+    routerLink="/tournament"
+    routerLinkActive
+    #rla2="routerLinkActive"
+    [active]="rla2.isActive"
+    >Tournament</a
+  >
+</nav>
 
 <router-outlet></router-outlet>
