@@ -16,8 +16,9 @@ export class TournamentComponent implements OnInit {
 
   constructor(private store: Store<AppState>) {}
 
-  addScore = (phaseIndex: number, matchIndex: number, teamId: number) => {
-    this.store.dispatch(addScore({ phaseIndex, matchIndex, teamId }))
+  addScore = (phaseIndex: number, matchIndex: number) => {
+    return (teamId: number) =>
+      this.store.dispatch(addScore({ phaseIndex, matchIndex, teamId }))
   }
 
   ngOnInit(): void {

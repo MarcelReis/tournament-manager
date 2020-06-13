@@ -44,8 +44,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatTableModule } from '@angular/material/table'
 import { MatSortModule } from '@angular/material/sort'
 import { MatPaginatorModule } from '@angular/material/paginator'
-import { TeamComponent } from './tournament/match/team/team.component';
-import { TeamListComponent } from './register/team-list/team-list.component';
+import { OpponentComponent } from './tournament/match/opponent/opponent.component'
+import { TeamListComponent } from './register/team-list/team-list.component'
 import { TeamFormComponent } from './register/team-form/team-form.component'
 
 @NgModule({
@@ -54,7 +54,7 @@ import { TeamFormComponent } from './register/team-form/team-form.component'
     TournamentComponent,
     MatchComponent,
     RegisterComponent,
-    TeamComponent,
+    OpponentComponent,
     TeamListComponent,
     TeamFormComponent,
   ],

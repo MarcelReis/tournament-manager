@@ -8,7 +8,7 @@ import { FormControl, Validators } from '@angular/forms'
 import { company } from 'faker'
 
 @Component({
-  selector: 'app-team-form',
+  selector: 'app-opponent-form',
   templateUrl: './team-form.component.html',
   styleUrls: ['./team-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

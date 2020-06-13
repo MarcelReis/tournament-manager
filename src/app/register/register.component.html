@@ -1,10 +1,13 @@
-<app-team-form
+<app-opponent-form
   [addTeam]="addTeam"
   [fillTeams]="addRandomTeams"
   [disabled]="!(teams.length < 8)"
-></app-team-form>
+></app-opponent-form>
 
-<app-team-list [teams]="teams" [removeTeam]="removeTeam"></app-team-list>
+<app-opponent-list
+  [teams]="teams"
+  [removeTeam]="removeTeam"
+></app-opponent-list>
 
 <button
   [disabled]="teams.length < 8"

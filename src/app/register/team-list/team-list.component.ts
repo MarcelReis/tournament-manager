@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core'
 import { Team } from 'src/app/models/team'
 
 @Component({
-  selector: 'app-team-list',
+  selector: 'app-opponent-list',
   templateUrl: './team-list.component.html',
   styleUrls: ['./team-list.component.scss'],
 })

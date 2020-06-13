@@ -1,12 +1,9 @@
 <div class="match">
   <div>
-    <app-team
-      [team]="match.teams[0]"
-      (click)="addScore(phaseIndex, matchIndex, match.teams[0].id)"
-    ></app-team>
-    <app-team
-      [team]="match.teams[1]"
-      (click)="addScore(phaseIndex, matchIndex, match.teams[1].id)"
-    ></app-team>
+    <app-opponent
+      *ngFor="let opponent of match.teams; index as i"
+      [team]="opponent"
+      (click)="addScore(match.teams[i].id)"
+    ></app-opponent>
   </div>
 </div>
