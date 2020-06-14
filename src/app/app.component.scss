@@ -7,7 +7,7 @@
 .nav-tab {
   background-color: var(--gray-1);
   width: 100%;
-  top: 64px;
+  top: 56px;
 }
 
 .container {
@@ -18,4 +18,10 @@
 
 .router-container {
   padding-top: 112px;
+}
+
+@media (min-width: 600px) {
+  .nav-tab {
+    top: 64px;
+  }
 }
