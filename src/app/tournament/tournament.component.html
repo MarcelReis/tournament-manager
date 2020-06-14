@@ -1,7 +1,11 @@
 <div class="container">
   <ul class="phase" *ngFor="let phase of tournament; let i = index">
     <li class="match" *ngFor="let match of phase; let j = index">
-      <app-match [match]="match" [addScore]="addScore(i, j)"></app-match>
+      <app-match
+        [bestOf]="bestOf"
+        [match]="match"
+        [addScore]="addScore(i, j)"
+      ></app-match>
     </li>
   </ul>
 </div>

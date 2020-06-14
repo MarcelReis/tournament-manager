@@ -1,4 +1,4 @@
-<div class="team">
+<div class="team {{ opponent.score > bestOf / 2 ? 'winner' : '' }}">
   <img class="team-image" src="https://placekitten.com/36/36" alt="" />
   <div class="team-name">{{ opponent?.name || '-' }}</div>
   <div class="team-score">

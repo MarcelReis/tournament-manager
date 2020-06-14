@@ -13,6 +13,7 @@ import { Store } from '@ngrx/store'
 export class TournamentComponent implements OnInit {
   tournament: Match[][]
   subscription: Subscription
+  bestOf: number
 
   constructor(private store: Store<AppState>) {}
 
@@ -24,9 +25,10 @@ export class TournamentComponent implements OnInit {
   ngOnInit(): void {
     this.subscription = this.store
       .select('tournament')
-      .pipe(map((state) => state.matches))
-      .subscribe((matches: Match[][]) => {
+      .pipe(map((state) => ({ matches: state.matches, bestOf: state.bestOf })))
+      .subscribe(({ matches, bestOf }) => {
         this.tournament = matches
+        this.bestOf = bestOf
       })
   }
 }

@@ -14,6 +14,7 @@ import { Team } from 'src/app/models/team'
 })
 export class MatchComponent implements OnInit {
   @Input() match: Match
+  @Input() bestOf: number
   @Input() addScore: (teamID: number) => void
 
   opponents: Team[] & OpponentType[]

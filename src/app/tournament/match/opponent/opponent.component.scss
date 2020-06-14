@@ -13,6 +13,12 @@
     background-color: var(--gray-2);
   }
 }
+.team.winner {
+  background: purple;
+  &:hover {
+    background-color: blueviolet;
+  }
+}
 
 .team-image {
   background-color: var(--gray-3);

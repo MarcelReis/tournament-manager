@@ -10,4 +10,5 @@ import { Component, Input } from '@angular/core'
 export class OpponentComponent {
   @Input() opponent?: OpponentType & Team
   @Input() addScore: () => void
+  @Input() bestOf: number
 }

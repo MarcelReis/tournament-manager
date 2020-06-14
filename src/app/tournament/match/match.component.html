@@ -1,9 +1,8 @@
 <div class="match">
-  <div>
-    <app-opponent
-      *ngFor="let opponent of match.teams; index as i"
-      [opponent]="opponents[i]"
-      (click)="addScore(match.teams[i].id)"
-    ></app-opponent>
-  </div>
+  <app-opponent
+    *ngFor="let opponent of match.teams; index as i"
+    [opponent]="opponents[i]"
+    [bestOf]="bestOf"
+    (click)="addScore(match.teams[i].id)"
+  ></app-opponent>
 </div>
