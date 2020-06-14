@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms'
 import { company } from 'faker'
 
 @Component({
-  selector: 'app-opponent-form',
+  selector: 'app-team-form',
   templateUrl: './team-form.component.html',
   styleUrls: ['./team-form.component.scss'],
 })

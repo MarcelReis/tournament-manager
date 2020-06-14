@@ -1,8 +1,8 @@
 import { createAction, props } from '@ngrx/store'
 
-export const gameStared = createAction(
+export const gameStarted = createAction(
   '[Tournament Page] Game Started',
-  props<{ ids: number[] }>()
+  props<{ ids: number[]; bestOf: number; shuffle: boolean }>()
 )
 
 export const addScore = createAction(

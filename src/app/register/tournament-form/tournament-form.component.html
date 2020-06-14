@@ -1,0 +1,43 @@
+<div class="config-container">
+  <h2 class="config-header">Tournament Form</h2>
+  <mat-form-field class="config-teams" color="accent">
+    <mat-label>Teams Amount</mat-label>
+    <mat-select
+      (selectionChange)="selectTeamConfigHandler($event)"
+      [value]="teamsAmount"
+      name="team-config"
+    >
+      <mat-option
+        *ngFor="let teamsConfig of teamsConfig"
+        [value]="teamsConfig.value"
+      >
+        {{ teamsConfig.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="config-bestOf" color="accent">
+    <mat-label>Best of</mat-label>
+    <mat-select
+      (selectionChange)="selectBestOfHandler($event)"
+      [value]="bestOf"
+      name="team-config"
+    >
+      <mat-option
+        *ngFor="let bestOfConfig of bestOfConfig"
+        [value]="bestOfConfig.value"
+      >
+        {{ bestOfConfig.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-slide-toggle
+    class="config-shuffle"
+    color="primary"
+    [checked]="shuffle"
+    (change)="toggleShuffleHandler()"
+    disabled
+  >
+    Random Matches
+  </mat-slide-toggle>
+</div>
