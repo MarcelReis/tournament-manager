@@ -6,6 +6,7 @@ import {
   MetaReducer,
 } from '@ngrx/store'
 import { environment } from '../../environments/environment'
+import { localStorageSync } from 'ngrx-store-localstorage'
 
 import * as fromTournament from '../tournament/store/tournament.reducer'
 import * as fromRegister from '../register/store/register.reducer'
@@ -20,6 +21,15 @@ export const reducers: ActionReducerMap<AppState> = {
   register: fromRegister.reducer,
 }
 
+export function localStorageSyncReducer(
+  reducer: ActionReducer<AppState>
+): ActionReducer<AppState> {
+  return localStorageSync({
+    keys: ['tournament', 'register'],
+    rehydrate: true,
+  })(reducer)
+}
+
 export const metaReducers: MetaReducer<AppState>[] = !environment.production
-  ? []
-  : []
+  ? [localStorageSyncReducer]
+  : [localStorageSyncReducer]

@@ -1,5 +1,5 @@
 import { Router } from '@angular/router'
-import { gameStared } from '../tournament/store/tournament.action'
+import { gameStarted } from '../tournament/store/tournament.action'
 import { Component, OnInit } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
 
@@ -13,22 +13,24 @@ import { map } from 'rxjs/operators'
 
 import { Team } from 'src/app/models/team'
 
-import { addTeam, removeTeam } from './store/register.actions'
+import {
+  addTeam,
+  removeTeam,
+  setTeamsNumber,
+  setBestOf,
+  toggleShuffle,
+} from './store/register.actions'
 
 @Component({
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  gameConfig: { shuffle: boolean; bestOf: number; teams: number }
   teams: Team[]
   subscription: Subscription
 
   constructor(private store: Store<AppState>, private router: Router) {}
-
-  nameFormControl = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(50),
-  ])
 
   addTeam = (name: string) => {
     this.store.dispatch(addTeam({ name }))
@@ -39,22 +41,43 @@ export class RegisterComponent implements OnInit {
   }
 
   addRandomTeams = () => {
-    for (let i = this.teams.length; i < 8; i++) {
+    for (let i = this.teams.length; i < this.gameConfig.teams; i++) {
       this.store.dispatch(addTeam({ name: company.companyName() }))
     }
   }
 
+  setTeamsConfig = (teams: 2 | 4 | 8 | 16) => {
+    this.store.dispatch(setTeamsNumber({ teams }))
+  }
+
+  setBestOfConfig = (bestOf: 1 | 3 | 5) => {
+    this.store.dispatch(setBestOf({ bestOf }))
+  }
+
+  toggleShuffleConfig = () => {
+    this.store.dispatch(toggleShuffle())
+  }
+
   startGame() {
-    this.store.dispatch(gameStared({ ids: this.teams.map((team) => team.id) }))
+    this.store.dispatch(
+      gameStarted({
+        ids: this.teams.map((team) => team.id),
+        bestOf: this.gameConfig.bestOf,
+        shuffle: false,
+      })
+    )
     this.router.navigate(['/tournament'])
   }
 
   ngOnInit(): void {
     this.subscription = this.store
       .select('register')
-      .pipe(map((state) => state.teams))
-      .subscribe((teams: Team[]) => {
+      .pipe(
+        map((state) => ({ teams: state.teams, gameConfig: state.gameConfig }))
+      )
+      .subscribe(({ teams, gameConfig }) => {
         this.teams = teams
+        this.gameConfig = gameConfig
       })
   }
 }

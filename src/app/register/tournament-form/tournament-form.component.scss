@@ -1,0 +1,30 @@
+.config-container {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  padding: 16px;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.config-header {
+  grid-column: 1 / span 2;
+}
+.config-teams {
+  grid-column: 1 / span 2;
+}
+.config-bestOf {
+  grid-column: 1 / span 2;
+}
+.config-shuffle {
+  grid-column: 1 / span 2;
+  justify-self: end;
+}
+
+@media (min-width: 600px) {
+  .config-teams {
+    grid-column: 1 / span 1;
+  }
+  .config-bestOf {
+    grid-column: 2 / span 1;
+  }
+}

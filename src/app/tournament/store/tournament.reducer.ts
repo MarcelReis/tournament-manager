@@ -10,15 +10,15 @@ const enum CurrentState {
 }
 
 export interface State {
-  bestOf: 3
   currentState: CurrentState
   matches: Match[][]
+  bestOf: number
 }
 
 export const initialState: State = {
-  bestOf: 3,
   currentState: CurrentState.uninitialized,
   matches: [],
+  bestOf: 0,
 }
 
 const generateRemaningMatches = <T>(firstRound: T[]): T[][] => {
@@ -36,7 +36,7 @@ const generateRemaningMatches = <T>(firstRound: T[]): T[][] => {
 const scoreboardReducer = createReducer(
   initialState,
 
-  on(TournamentActions.gameStared, (state, { ids }) => {
+  on(TournamentActions.gameStarted, (state, { ids, bestOf }) => {
     const firstRound: Match[] = []
     for (let index = 0; index < ids.length; index += 2) {
       const match = new Match([
@@ -47,7 +47,7 @@ const scoreboardReducer = createReducer(
     }
     const matches = generateRemaningMatches(firstRound)
 
-    return { ...state, currentState: CurrentState.running, matches }
+    return { ...state, currentState: CurrentState.running, matches, bestOf }
   }),
   on(
     TournamentActions.addScore,

@@ -1,8 +1,17 @@
-<app-opponent-form
+<app-tournament-form
+  [teamsAmount]="gameConfig.teams"
+  [setTeamsAmout]="setTeamsConfig"
+  [bestOf]="gameConfig.bestOf"
+  [setBestOf]="setBestOfConfig"
+  [shuffle]="gameConfig.shuffle"
+  [toggleShuffle]="toggleShuffleConfig"
+></app-tournament-form>
+
+<app-team-form
   [addTeam]="addTeam"
   [fillTeams]="addRandomTeams"
-  [disabled]="!(teams.length < 8)"
-></app-opponent-form>
+  [disabled]="!(teams.length < gameConfig.teams)"
+></app-team-form>
 
 <app-opponent-list
   [teams]="teams"
@@ -10,7 +19,7 @@
 ></app-opponent-list>
 
 <button
-  [disabled]="teams.length < 8"
+  [disabled]="teams.length < gameConfig.teams"
   mat-raised-button
   (click)="startGame()"
   color="accent"
