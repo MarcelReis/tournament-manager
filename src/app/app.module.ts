@@ -46,7 +46,7 @@ import { MatSortModule } from '@angular/material/sort'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { OpponentComponent } from './tournament/match/opponent/opponent.component'
 import { TeamListComponent } from './register/team-list/team-list.component'
-import { TeamFormComponent } from './register/team-form/team-form.component';
+import { TeamFormComponent } from './register/team-form/team-form.component'
 import { TournamentFormComponent } from './register/tournament-form/tournament-form.component'
 
 @NgModule({
