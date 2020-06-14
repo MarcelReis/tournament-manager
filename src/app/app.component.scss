@@ -1,0 +1,21 @@
+.toolbar,
+.nav-tab {
+  position: fixed;
+  z-index: 10;
+}
+
+.nav-tab {
+  background-color: var(--gray-1);
+  width: 100%;
+  top: 64px;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  max-width: 900px;
+}
+
+.router-container {
+  padding-top: 112px;
+}
