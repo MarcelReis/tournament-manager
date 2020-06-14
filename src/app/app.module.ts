@@ -32,7 +32,8 @@ import { MatListModule } from '@angular/material/list'
 import { MatGridListModule } from '@angular/material/grid-list'
 import { MatCardModule } from '@angular/material/card'
 import { MatTabsModule } from '@angular/material/tabs'
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { ControlOptionsComponent } from './tournament/control-options/control-options.component'
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MatIconModule } from '@angular/material/icon'
     TeamListComponent,
     TeamFormComponent,
     TournamentFormComponent,
+    ControlOptionsComponent,
   ],
   imports: [
     BrowserModule,

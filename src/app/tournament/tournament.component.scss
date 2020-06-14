@@ -2,6 +2,14 @@
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  min-height: calc(100vh - 104px);
+  padding-bottom: 64px;
+}
+@media (min-width: 600px) {
+  .container {
+    min-height: calc(100vh - 112px);
+    padding-bottom: 0;
+  }
 }
 
 .phase {

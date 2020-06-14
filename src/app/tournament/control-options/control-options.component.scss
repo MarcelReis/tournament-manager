@@ -1,0 +1,11 @@
+.control-container {
+  display: flex;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  align-items: center;
+
+  :not(:first-child) {
+    margin-left: 16px;
+  }
+}
