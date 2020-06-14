@@ -1,13 +1,18 @@
 .toolbar,
-.nav-tab {
+.nav {
+  width: 100%;
   position: fixed;
   z-index: 10;
 }
 
-.nav-tab {
+.nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   background-color: var(--gray-1);
-  width: 100%;
   top: 56px;
+}
+// Overwrites default Material styling confliting with custom border in .nav
+.mat-tab-nav-bar {
+  border: none;
 }
 
 .container {
@@ -22,7 +27,7 @@
 }
 
 @media (min-width: 600px) {
-  .nav-tab {
+  .nav {
     top: 64px;
   }
 }
