@@ -32,7 +32,7 @@ export class MatchComponent implements OnInit {
       .subscribe((teams: Team[]) => {
         this.opponents = this.match.teams.map((team) => {
           if (!team || !team.id) {
-            return { id: -1, score: 0, name: '' }
+            return { id: -1, score: 0, name: '', image: '' }
           }
           return {
             ...teams.find((_team) => team.id === _team.id),
