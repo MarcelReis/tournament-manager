@@ -1,0 +1,10 @@
+.match {
+  border: var(--gray-2) 2px solid;
+  border-radius: 8px;
+  overflow: hidden;
+
+  hr {
+    margin: 0;
+    border: var(--gray-2) 1px solid;
+  }
+}

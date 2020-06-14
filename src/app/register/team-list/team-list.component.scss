@@ -1,0 +1,28 @@
+.container {
+  padding: 16px;
+}
+
+.teamsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 -16px;
+}
+
+.teamsList-item {
+  width: 100%;
+}
+
+.team-card {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  &:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
+}
+
+.team-name {
+  width: 100%;
+  white-space: nowrap;
+}

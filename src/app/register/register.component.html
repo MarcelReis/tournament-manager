@@ -1,0 +1,24 @@
+<app-opponent-form
+  [addTeam]="addTeam"
+  [fillTeams]="addRandomTeams"
+  [disabled]="!(teams.length < 8)"
+></app-opponent-form>
+
+<app-opponent-list
+  [teams]="teams"
+  [removeTeam]="removeTeam"
+></app-opponent-list>
+
+<button
+  [disabled]="teams.length < 8"
+  mat-raised-button
+  (click)="startGame()"
+  color="accent"
+  class="button"
+  type="submit"
+>
+  <span class="button-content">
+    <mat-icon>emoji_events</mat-icon>
+    <span>Create Tournament</span>
+  </span>
+</button>

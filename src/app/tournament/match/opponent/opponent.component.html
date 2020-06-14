@@ -1,0 +1,15 @@
+<div class="team {{ opponent.score > bestOf / 2 ? 'winner' : '' }}">
+  <img
+    class="team-image"
+    src="{{ opponent.image }}"
+    alt=""
+    width="36"
+    height="36"
+  />
+  <div class="team-name">{{ opponent?.name || '-' }}</div>
+  <div class="team-score">
+    <span>
+      {{ opponent?.score || 0 }}
+    </span>
+  </div>
+</div>

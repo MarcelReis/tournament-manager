@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "./node_modules/normalize.css/normalize.css",
+              "src/styles/main.scss"
             ],
             "scripts": []
           },
@@ -83,6 +85,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "codeCoverage": true,
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
@@ -92,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +127,11 @@
           }
         }
       }
-    }},
-  "defaultProject": "summoners-rift"
+    }
+  },
+  "defaultProject": "summoners-rift",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics",
+    "analytics": "b527fbd7-b16c-4572-94eb-92829f444a5d"
+  }
 }
