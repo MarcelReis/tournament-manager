@@ -8,8 +8,8 @@ import {
 import { environment } from '../../environments/environment'
 import { localStorageSync } from 'ngrx-store-localstorage'
 
-import * as fromTournament from '../tournament/store/tournament.reducer'
-import * as fromRegister from '../register/store/register.reducer'
+import * as fromTournament from '../pages/tournament/store/tournament.reducer'
+import * as fromRegister from '../pages/register/store/register.reducer'
 
 export interface AppState {
   tournament: fromTournament.State

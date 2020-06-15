@@ -9,3 +9,11 @@ export const addScore = createAction(
   '[Tournament Page] Add Score',
   props<{ phaseIndex: number; matchIndex: number; teamId: number }>()
 )
+
+export const resetTournament = createAction(
+  '[Tournament Page] Reset Tournament'
+)
+
+export const clearTournament = createAction(
+  '[Tournament Page] Clear Tournament'
+)

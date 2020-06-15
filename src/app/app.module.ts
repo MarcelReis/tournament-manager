@@ -10,13 +10,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 
 // Own components
-import { OpponentComponent } from './tournament/match/opponent/opponent.component'
-import { TeamListComponent } from './register/team-list/team-list.component'
-import { TeamFormComponent } from './register/team-form/team-form.component'
-import { TournamentFormComponent } from './register/tournament-form/tournament-form.component'
-import { TournamentComponent } from './tournament/tournament.component'
-import { MatchComponent } from './tournament/match/match.component'
-import { RegisterComponent } from './register/register.component'
+import { OpponentComponent } from './pages/tournament/match/opponent/opponent.component'
+import { TeamListComponent } from './pages/register/team-list/team-list.component'
+import { TeamFormComponent } from './pages/register/team-form/team-form.component'
+import { TournamentFormComponent } from './pages/register/tournament-form/tournament-form.component'
+import { TournamentComponent } from './pages/tournament/tournament.component'
+import { MatchComponent } from './pages/tournament/match/match.component'
+import { RegisterComponent } from './pages/register/register.component'
+import { ControlOptionsComponent } from './pages/tournament/control-options/control-options.component'
 
 //Angular Material Components
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -44,6 +45,7 @@ import { MatIconModule } from '@angular/material/icon'
     TeamListComponent,
     TeamFormComponent,
     TournamentFormComponent,
+    ControlOptionsComponent,
   ],
   imports: [
     BrowserModule,

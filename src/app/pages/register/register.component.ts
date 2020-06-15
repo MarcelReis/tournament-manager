@@ -1,9 +1,8 @@
 import { Router } from '@angular/router'
-import { gameStarted } from '../tournament/store/tournament.action'
+import { gameStarted } from '../../pages/tournament/store/tournament.action'
 import { Component, OnInit } from '@angular/core'
-import { FormControl, Validators } from '@angular/forms'
 
-import { AppState } from '../store/app.reducer'
+import { AppState } from '../../store/app.reducer'
 import { Store } from '@ngrx/store'
 
 import { company } from 'faker'
@@ -61,7 +60,7 @@ export class RegisterComponent implements OnInit {
   startGame() {
     this.store.dispatch(
       gameStarted({
-        ids: this.teams.map((team) => team.id),
+        ids: this.teams.slice(0, this.gameConfig.teams).map((team) => team.id),
         bestOf: this.gameConfig.bestOf,
         shuffle: false,
       })

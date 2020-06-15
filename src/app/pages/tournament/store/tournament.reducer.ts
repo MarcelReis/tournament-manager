@@ -3,7 +3,7 @@ import * as TournamentActions from './tournament.action'
 
 import { Match } from 'src/app/models/match'
 
-const enum CurrentState {
+export const enum CurrentState {
   'uninitialized',
   'running',
   'finished',
@@ -33,20 +33,23 @@ const generateRemaningMatches = <T>(firstRound: T[]): T[][] => {
   return tree
 }
 
+const generateMatches = (ids: number[]) => {
+  const firstRound: Match[] = []
+  for (let index = 0; index < ids.length; index += 2) {
+    const match = new Match([
+      { id: ids[index], score: 0 },
+      { id: ids[index + 1], score: 0 },
+    ])
+    firstRound.push(match)
+  }
+  return generateRemaningMatches(firstRound)
+}
+
 const scoreboardReducer = createReducer(
   initialState,
 
   on(TournamentActions.gameStarted, (state, { ids, bestOf }) => {
-    const firstRound: Match[] = []
-    for (let index = 0; index < ids.length; index += 2) {
-      const match = new Match([
-        { id: ids[index], score: 0 },
-        { id: ids[index + 1], score: 0 },
-      ])
-      firstRound.push(match)
-    }
-    const matches = generateRemaningMatches(firstRound)
-
+    const matches = generateMatches(ids)
     return { ...state, currentState: CurrentState.running, matches, bestOf }
   }),
   on(
@@ -65,6 +68,7 @@ const scoreboardReducer = createReducer(
       return {
         ...state,
         matches: state.matches.map((phase, index) => {
+          // Changes the selected phase and it's match
           if (index === phaseIndex) {
             phase = phase.map((match, index) => {
               if (matchIndex === index && !match.ended) {
@@ -75,16 +79,14 @@ const scoreboardReducer = createReducer(
 
                 match = new Match(match.teams.map(replaceMatch), match.ended)
 
-                const ended = match.teams.find(
+                const matchEnded = !!match.teams.find(
                   (team) => team.score > state.bestOf / 2
                 )
-                if (ended) {
-                  match = new Match(
-                    match.teams.map((team) => {
-                      return { ...team, winner: team.score > state.bestOf / 2 }
-                    }),
-                    true
-                  )
+                if (matchEnded) {
+                  const setWinner = (team) => {
+                    return { ...team, winner: team.score > state.bestOf / 2 }
+                  }
+                  match = new Match(match.teams.map(setWinner), true)
                 }
                 selectedMatch = match
               }
@@ -92,9 +94,8 @@ const scoreboardReducer = createReducer(
             })
           }
 
-          const isSubsequentPhase =
-            selectedMatch.ended && index === phaseIndex + 1
-          if (isSubsequentPhase) {
+          // If the selected game has ended the subsquent match also need to be updated
+          if (selectedMatch.ended && index === phaseIndex + 1) {
             const nextMatchIndex = Math.floor(matchIndex / 2)
             const nextOpponentIndex = matchIndex % 2
 
@@ -112,7 +113,19 @@ const scoreboardReducer = createReducer(
         }),
       }
     }
-  )
+  ),
+  on(TournamentActions.resetTournament, (state) => {
+    const teamSet = state.matches[0].reduce((teamSet, match) => {
+      match.teams.forEach((team) => teamSet.add(team.id))
+      return teamSet
+    }, new Set<number>())
+
+    const matches = generateMatches([...teamSet])
+    return { ...state, currentState: CurrentState.running, matches }
+  }),
+  on(TournamentActions.clearTournament, () => {
+    return { ...initialState }
+  })
 )
 
 export function reducer(state: State | undefined, action: Action) {
