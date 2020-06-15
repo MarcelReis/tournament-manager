@@ -23,7 +23,7 @@
 }
 
 .router-container {
-  padding-top: 112px;
+  padding-top: var(--top-spacing);
 }
 
 @media (min-width: 600px) {

@@ -7,7 +7,7 @@
 }
 @media (min-width: 600px) {
   .container {
-    min-height: calc(100vh - 112px);
+    min-height: calc(100vh - var(--top-spacing));
     padding-bottom: 0;
   }
 }
@@ -37,4 +37,19 @@
 
 .match {
   list-style: none;
+}
+
+.disclamer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  height: calc(100vh - var(--top-spacing));
+}
+.disclamer-image {
+  width: 50%;
+  height: auto;
+  max-width: 300px;
 }

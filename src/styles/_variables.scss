@@ -8,4 +8,11 @@
   --white: #fff;
 
   --max-wdith: 960px;
+  --top-spacing: 104px;
+}
+
+@media (min-width: 600px) {
+  :root {
+    --top-spacing: 112px;
+  }
 }

@@ -1,4 +1,18 @@
-<div class="container">
+<div class="disclamer" *ngIf="currentState === 0">
+  <img
+    class="disclamer-image"
+    src="/assets/amuru-crying.gif"
+    alt="Amuru Crying"
+  />
+  <h1 class="disclamer-text">
+    Looks like you don't have created a tournament yet
+  </h1>
+  <button mat-raised-button color="accent" routerLink="/create">
+    Create a Tournament
+  </button>
+</div>
+
+<div *ngIf="currentState === 1" class="container">
   <ul class="phase" *ngFor="let phase of tournament; let i = index">
     <li class="match" *ngFor="let match of phase; let j = index">
       <app-match
