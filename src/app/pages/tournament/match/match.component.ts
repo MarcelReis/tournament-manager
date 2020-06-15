@@ -30,14 +30,13 @@ export class MatchComponent implements OnInit {
       .select('register')
       .pipe(map((state) => state.teams))
       .subscribe((teams: Team[]) => {
-        this.opponents = this.match.teams.map((team) => {
-          if (!team || !team.id) {
-            return { id: -1, score: 0, name: '', image: '' }
+        this.opponents = this.match.teams.map((matchOpponent) => {
+          if (!matchOpponent || !matchOpponent.id) {
+            return { id: 0, score: 0, name: '', image: '' }
           }
           return {
-            ...teams.find((_team) => team.id === _team.id),
-            id: team.id,
-            score: team.score,
+            ...matchOpponent,
+            ...teams.find((matchTeam) => matchOpponent.id === matchTeam.id),
           }
         })
       })

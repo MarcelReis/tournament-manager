@@ -34,6 +34,7 @@ import { MatGridListModule } from '@angular/material/grid-list'
 import { MatCardModule } from '@angular/material/card'
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatIconModule } from '@angular/material/icon'
+import { MatRippleModule } from '@angular/material/core'
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { MatIconModule } from '@angular/material/icon'
     MatCardModule,
     MatTabsModule,
     MatIconModule,
+    MatRippleModule,
 
     AppRoutingModule,
     FormsModule,
