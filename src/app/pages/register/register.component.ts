@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
   startGame() {
     this.store.dispatch(
       gameStarted({
-        ids: this.teams.map((team) => team.id),
+        ids: this.teams.slice(0, this.gameConfig.teams).map((team) => team.id),
         bestOf: this.gameConfig.bestOf,
         shuffle: false,
       })
