@@ -21,7 +21,7 @@ export class TournamentFormComponent {
 
   @Input() bestOf: number
   @Input() setBestOf: (bestOf: number) => void
-  public bestOfConfig: TeamsConfig[]
+  public bestOfConfig: BestOfConfig[]
 
   @Input() shuffle: boolean
   @Input() toggleShuffle: () => void

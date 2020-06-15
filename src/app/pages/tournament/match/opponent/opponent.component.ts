@@ -1,5 +1,5 @@
 import { Team } from 'src/app/models/team'
-import { OpponentType } from '../../../models/match'
+import { OpponentType } from '../../../../models/match'
 import { Component, Input } from '@angular/core'
 
 @Component({

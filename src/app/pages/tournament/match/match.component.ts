@@ -1,4 +1,4 @@
-import { OpponentType } from './../../models/match'
+import { OpponentType } from './../../../models/match'
 import { Match } from 'src/app/models/match'
 import { Component, Input, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs'

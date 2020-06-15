@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 
-import { TournamentComponent } from './tournament/tournament.component'
-import { RegisterComponent } from './register/register.component'
+import { TournamentComponent } from './pages/tournament/tournament.component'
+import { RegisterComponent } from './pages/register/register.component'
 
 const routes: Routes = [
   { path: 'tournament', component: TournamentComponent },
