@@ -3,7 +3,7 @@ import * as TournamentActions from './tournament.action'
 
 import { Match } from 'src/app/models/match'
 
-const enum CurrentState {
+export const enum CurrentState {
   'uninitialized',
   'running',
   'finished',

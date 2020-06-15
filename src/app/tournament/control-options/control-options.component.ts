@@ -7,5 +7,6 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ControlOptionsComponent {
-  @Input() resetGame: () => void
+  @Input() resetTournament: () => void
+  @Input() clearTournament: () => void
 }
