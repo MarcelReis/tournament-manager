@@ -20,12 +20,17 @@ export class TournamentComponent implements OnInit {
   subscription: Subscription
   bestOf: number
   currentState: CurrentState
+  timer: any
 
   constructor(private store: Store<AppState>) {}
 
   addScore = (phaseIndex: number, matchIndex: number) => {
-    return (teamId: number) =>
-      this.store.dispatch(addScore({ phaseIndex, matchIndex, teamId }))
+    return (teamId: number) => {
+      clearTimeout(this.timer)
+      this.timer = setTimeout(() => {
+        this.store.dispatch(addScore({ phaseIndex, matchIndex, teamId }))
+      }, 250)
+    }
   }
 
   clearTournament = () => this.store.dispatch(clearTournament())
