@@ -9,6 +9,13 @@ import { Component, Input } from '@angular/core'
 })
 export class OpponentComponent {
   @Input() opponent?: OpponentType & Team
-  @Input() addScore: () => void
+  @Input() private addScore: (id: number) => void
   @Input() bestOf: number
+  private timer: any
+
+  handleClick() {
+    if (this.opponent.id && this.opponent.winner === undefined) {
+      this.addScore(this.opponent.id)
+    }
+  }
 }

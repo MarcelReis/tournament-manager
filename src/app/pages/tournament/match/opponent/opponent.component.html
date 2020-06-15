@@ -1,4 +1,8 @@
-<div class="team {{ opponent.score > bestOf / 2 ? 'winner' : '' }}">
+<div
+  class="team {{ opponent.score > bestOf / 2 ? 'winner' : '' }}"
+  mat-ripple
+  (click)="handleClick()"
+>
   <img
     class="team-image"
     src="{{ opponent.image }}"
@@ -8,8 +12,6 @@
   />
   <div class="team-name">{{ opponent?.name || '-' }}</div>
   <div class="team-score">
-    <span>
-      {{ opponent?.score || 0 }}
-    </span>
+    <span> {{ opponent?.score || 0 }} </span>
   </div>
 </div>

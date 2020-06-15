@@ -1,8 +1,8 @@
-<div class="match">
+<mat-card class="match-card">
   <app-opponent
-    *ngFor="let opponent of match.teams; index as i"
-    [opponent]="opponents[i]"
+    *ngFor="let opponent of opponents"
+    [opponent]="opponent"
     [bestOf]="bestOf"
-    (click)="addScore(match.teams[i].id)"
+    [addScore]="addScore"
   ></app-opponent>
-</div>
+</mat-card>
